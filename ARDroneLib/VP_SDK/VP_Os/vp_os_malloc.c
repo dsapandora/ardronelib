@@ -58,18 +58,6 @@ vp_os_free(void *ptr)
 }
 
 void
-free(void *ptr)
-{
-  #ifdef DEBUG_MODE
-    assert(*ptr);
-    free(*ptr);
-  #else // ! DEBUG_MODE
-    free(*ptr);
-  #endif // <- DEBUG_MODE
-    *ptr=NULL;
-}
-
-void
 vp_os_sfree(void **ptr)
 {
 #ifdef DEBUG_MODE
