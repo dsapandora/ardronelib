@@ -10,7 +10,7 @@
 #include <assert.h>
 #include <string.h>
 #include <stdlib.h>
-#include <cstdlib>
+#include <cstdlib.h>
 
 
 #include <VP_Os/vp_os_types.h>
