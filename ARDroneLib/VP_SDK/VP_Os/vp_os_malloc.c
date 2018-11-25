@@ -20,9 +20,9 @@ void free(void *ptr)
 {
 #ifdef DEBUG_MODE
   assert(ptr);
-  delete(ptr);
+  ptr = delete;
 #else // ! DEBUG_MODE
-  delete(ptr);
+  ptr = delete;
 #endif // <- DEBUG_MODE
 }
 
