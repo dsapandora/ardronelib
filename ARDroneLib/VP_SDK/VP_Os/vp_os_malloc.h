@@ -10,6 +10,7 @@
 #include <assert.h>
 #include <string.h>
 #include <stdlib.h>
+#include <cstdlib>
 
 
 #include <VP_Os/vp_os_types.h>
@@ -112,13 +113,13 @@ extern void *please_use_vp_os_memset(void *s, int c, size_t n);
 #undef calloc
 #undef malloc
 #undef memset
-//#undef free
+#undef free
 #undef realloc
 
 #define calloc  please_use_vp_os_calloc
 #define malloc  please_use_vp_os_malloc
 #define memset  please_use_vp_os_memset
-//#define free    please_use_vp_os_free
+#define free    please_use_vp_os_free
 #define realloc please_use_vp_os_realloc
 
 #ifdef __cplusplus
@@ -127,4 +128,3 @@ extern void *please_use_vp_os_memset(void *s, int c, size_t n);
 
 
 #endif // ! _MALLOC_INCLUDE_OS_
-
