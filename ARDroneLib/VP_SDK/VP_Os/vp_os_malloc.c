@@ -72,9 +72,9 @@ vp_os_sfree(void **ptr)
 {
 #ifdef DEBUG_MODE
   assert(*ptr);
-  std::free(*ptr);
+  free(*ptr);
 #else // ! DEBUG_MODE
-  std::free(*ptr);
+  free(*ptr);
 #endif // <- DEBUG_MODE
   *ptr=NULL;
 }
