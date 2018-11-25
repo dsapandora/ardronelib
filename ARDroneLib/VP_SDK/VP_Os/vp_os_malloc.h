@@ -113,7 +113,6 @@ extern void *please_use_vp_os_memset(void *s, int c, size_t n);
 #undef malloc
 #undef memset
 #undef free
-#undef std::free
 #undef realloc
 
 #define calloc  please_use_vp_os_calloc
