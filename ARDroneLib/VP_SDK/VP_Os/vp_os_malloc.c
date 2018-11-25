@@ -20,9 +20,9 @@ void free(void *ptr)
 {
 #ifdef DEBUG_MODE
   assert(ptr);
-  ptr = delete;
+  __libc_free(ptr);
 #else // ! DEBUG_MODE
-  ptr = delete;
+  __libc_free(ptr);
 #endif // <- DEBUG_MODE
 }
 
