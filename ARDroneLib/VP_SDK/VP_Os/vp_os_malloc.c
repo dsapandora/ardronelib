@@ -58,6 +58,17 @@ vp_os_free(void *ptr)
 }
 
 void
+free(void *ptr)
+{
+#ifdef DEBUG_MODE
+  assert(ptr);
+  free(ptr);
+#else // ! DEBUG_MODE
+  free(ptr);
+#endif // <- DEBUG_MODE
+}
+
+void
 vp_os_sfree(void **ptr)
 {
 #ifdef DEBUG_MODE
@@ -79,7 +90,7 @@ vp_os_sfree(void **ptr)
 // _____ ______ ______ __________
 //  ... | bptr | size |   ....   |
 // _____|______|______|__________|
-// 
+//
 void* vp_os_aligned_malloc(size_t size, size_t align_size)
 {
   char *ptr, *aligned_ptr;
@@ -95,7 +106,7 @@ void* vp_os_aligned_malloc(size_t size, size_t align_size)
   // Allocation size is :
   //    - Requested user size
   //    - a size (align_size) to make sure we can align on the requested boundary
-  //    - 8 more bytes to register base adress & allocation size 
+  //    - 8 more bytes to register base adress & allocation size
   allocation_size = size + align_size + 2*sizeof(int);
 
   ptr = (char*) vp_os_malloc(allocation_size);
@@ -196,4 +207,3 @@ vp_os_realloc(void *ptr, size_t size)
   return realloc(ptr, size);
 #endif // <- DEBUG_MODE
 }
-

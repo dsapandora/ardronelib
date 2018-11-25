@@ -118,7 +118,6 @@ extern void *please_use_vp_os_memset(void *s, int c, size_t n);
 #define calloc  please_use_vp_os_calloc
 #define malloc  please_use_vp_os_malloc
 #define memset  please_use_vp_os_memset
-#define free    please_use_vp_os_free
 #define realloc please_use_vp_os_realloc
 
 #ifdef __cplusplus
