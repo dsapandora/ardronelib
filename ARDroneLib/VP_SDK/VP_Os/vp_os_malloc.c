@@ -16,6 +16,16 @@
 #undef free
 #undef realloc
 
+void free(void *ptr)
+{
+#ifdef DEBUG_MODE
+  assert(ptr);
+  std::free(ptr);
+#else // ! DEBUG_MODE
+  std::free(ptr);
+#endif // <- DEBUG_MODE
+}
+
 void *
 vp_os_calloc(size_t nmemb, size_t size)
 {
@@ -51,9 +61,9 @@ vp_os_free(void *ptr)
 {
 #ifdef DEBUG_MODE
   assert(ptr);
-  free(ptr);
+  std::free(ptr);
 #else // ! DEBUG_MODE
-  free(ptr);
+  std::free(ptr);
 #endif // <- DEBUG_MODE
 }
 
@@ -62,9 +72,9 @@ vp_os_sfree(void **ptr)
 {
 #ifdef DEBUG_MODE
   assert(*ptr);
-  free(*ptr);
+  std::free(*ptr);
 #else // ! DEBUG_MODE
-  free(*ptr);
+  std::free(*ptr);
 #endif // <- DEBUG_MODE
   *ptr=NULL;
 }
