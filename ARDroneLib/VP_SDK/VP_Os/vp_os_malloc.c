@@ -20,9 +20,9 @@ void free(void *ptr)
 {
 #ifdef DEBUG_MODE
   assert(ptr);
-  std::free(ptr);
+  delete(ptr);
 #else // ! DEBUG_MODE
-  std::free(ptr);
+  delete(ptr);
 #endif // <- DEBUG_MODE
 }
 
@@ -61,9 +61,9 @@ vp_os_free(void *ptr)
 {
 #ifdef DEBUG_MODE
   assert(ptr);
-  delete ptr;
+  free(ptr);
 #else // ! DEBUG_MODE
-  delete ptr;
+  free(ptr);
 #endif // <- DEBUG_MODE
 }
 
