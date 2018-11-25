@@ -105,7 +105,7 @@ vp_os_memcpy(void *dest, const void *src, size_t n)
 
 extern void *please_use_vp_os_calloc(size_t nmemb, size_t size);
 extern void *please_use_vp_os_malloc(size_t size);
-extern void  please_use_vp_os_free(void *ptr);
+extern void *please_use_vp_os_free(void *ptr);
 extern void *please_use_vp_os_realloc(void *ptr, size_t size);
 extern void *please_use_vp_os_memset(void *s, int c, size_t n);
 
@@ -118,7 +118,7 @@ extern void *please_use_vp_os_memset(void *s, int c, size_t n);
 #define calloc  please_use_vp_os_calloc
 #define malloc  please_use_vp_os_malloc
 #define memset  please_use_vp_os_memset
-#define free    vp_os_free(ptr)
+#define free    please_use_vp_os_free
 #define realloc please_use_vp_os_realloc
 
 #ifdef __cplusplus
